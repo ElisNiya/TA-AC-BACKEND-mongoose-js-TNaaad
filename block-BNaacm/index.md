@@ -9,3 +9,9 @@ Q. create a article schema with title and description
 
 - create a model on top of it
 - export it
+var articleSchema = new Schema({
+  title: String,
+  description: String
+})
+
+module.exports = mongoose.model('Article', articleSchema)
