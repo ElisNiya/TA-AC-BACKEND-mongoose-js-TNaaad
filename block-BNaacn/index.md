@@ -17,6 +17,15 @@ Q. Create an article Schema with fields
 - createdAt -> Date, defaults to current date
 - likes -> Number, defaults to zero
 
+var articleSchema = ({
+
+    title :  String,
+    description :  String,
+    tags : [String],
+    createdAt :  Date, defaults : new Date(),
+    likes : Number, defaults : 0
+})
+
 Q. create a user schema with following fields and type
 1.name -> string
 2.email -> string
