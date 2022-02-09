@@ -12,3 +12,11 @@ Q. Add address Schema with fields
 3. state -> String
 4. pin -> number
 5. user -> ObjectId of User
+
+var userSchema = new Schema ({
+ village : String,
+ city : String,
+ state : String,
+ pin : number,
+user : ObjectId of User,
+})
