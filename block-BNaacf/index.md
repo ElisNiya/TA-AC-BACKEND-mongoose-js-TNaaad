@@ -19,4 +19,6 @@ var userSchema = new Schema ({
  state : String,
  pin : number,
 user : ObjectId of User,
+favorites: [String],
+marks: [Numbers]
 })
