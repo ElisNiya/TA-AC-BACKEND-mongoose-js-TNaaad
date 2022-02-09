@@ -1,5 +1,57 @@
 writeCode
 
+var express = require('express')
+var mongoose = require('mongoose')
+var Product = require('./models/product')
+
+mongoose.connect()
+
+var app = express('mongodb://localhost/sample', {
+useNewUrlParser: true, useUnifiedTopology: true
+}, (err) => {
+    console.log(err ? err : 'connected')
+})
+
+app.get('/', (req,res) => {
+    res.send('welcome')
+})
+app.post('/products', (req,res) => {
+    console.log(req.body)
+    //save data to db
+    Product.create(req.body, (err, product) => {
+        console.log(err, product)
+    })
+})
+
+app.get('/products', (req,res) => {
+    Product.find({},(err, products) =>{
+        console.log(err,products)
+        //res.json({products: products})
+    })
+})
+
+app.put('/products/:id', (req,res)=>{
+    var id = req.params.id
+    Product.findByIdAndUpdate(iq, req.body, {new:true}, (err, updatedProduct) => {
+        res.json(updatedProduct)
+    })
+})
+
+app.delete('/products/:id', (req,res) => {
+    Product.findByIdAndUpdate(req.params.id, (err,deletedProduct) => {
+       // res.json()
+        res.send(`${deletedProduct.title} was deleted`)
+
+    })
+})
+
+
+var userSchema = new Schema({
+  name: String,
+  email: String,
+  sports: String
+})
+
 #### Perform users CRUD operation using mongoose from an express application
 
 - create an express application named sample
