@@ -57,3 +57,10 @@ Q. create model for users schema created above and export it.
 Q. create model for article schema created above and export it.
 
 Q. create model for address schema created above and export it.
+
+
+mongoose.export = ('Article', articleSchema)
+mongoose.export = ('Users', usersSchema)
+mongoose.export = ('Address', addressSchema)
+
+
